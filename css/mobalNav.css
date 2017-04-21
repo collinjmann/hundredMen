@@ -1,0 +1,85 @@
+header, main, footer
+{
+    position:relative;
+    top:0px;
+    left:0px;
+    z-index:-1;
+    transition:left 1s;
+}
+header
+{
+    padding:0px;
+    display:flex;
+    justify-content: center;
+}
+header img
+{
+    width:92%;
+    max-width:500px;
+}
+nav
+{
+    width:150px;
+    height:70px;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:linear-gradient(to top left, transparent 49.5%, #ffffff 50%);
+    outline:none;
+}
+#hamburg
+{
+    height:30px;
+    width:50px;
+    display:flex;
+    flex-wrap:wrap;
+    position:relative;
+    top:10px;
+    left:15px;
+}
+#hamburg div
+{
+    width:100%;
+    height:5px;
+    background-color:#000000;
+}
+nav ul
+{
+    overflow-x:hidden;
+    overflow-y:hidden;
+    background-color:lightblue;
+    width:0px;
+    transition:width 1s;
+    height:100vh;
+    position:fixed;
+    top:0px;
+}
+nav ul li a
+{
+    display:block;
+    padding-top:30px;
+    padding-bottom:30px;
+    width:100%;
+    padding-left:20px;
+    color:#000000;
+    text-decoration:none;
+    font-weight:bold;
+    transition:background-color 0.5s;
+}
+nav ul li a:hover
+{
+    background-color:#000000;
+    color:#ffffff;
+}
+nav ul li:first-of-type a
+{
+    margin-top:15vh;
+}
+nav:focus ul
+{
+    width:200px;
+}
+main
+{
+    min-height:0px;
+}
