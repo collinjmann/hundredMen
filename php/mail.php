@@ -24,6 +24,9 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
         $_SESSION['email_valid'] = false;
         redirect();
     }
+    if(preg_match('/[^0-9]/', $sender_phone) && preg_match('/[^0-9]/', $sender_wphone) && preg_match('/[^0-9]/', $sender_cphone)) {
+        $_SESSION['phones_valid'] = true;
+    } else
 
 } else {
     $_SESSION['form_completed'] = false;
