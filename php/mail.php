@@ -8,12 +8,14 @@ $sender_staddress = $_POST['address'];
 $sender_city = $_POST['city'];
 $sender_state = $_POST['state'];
 $sender_zip = $_POST['zip'];
-$sender_hphone = $_POST['hphone'];
-$sender_wphone = $_POST['wphone'];
-$sender_cphone = $_post['wphone'];
+$sender_hphone = $_POST['hphone1'] . $_POST['hphone2'] . $_POST['hphone3'];
+$sender_wphone = $_POST['wphone1'] . $_POST['wphone2'] . $_POST['wphone3'];
+$sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
 
 
-if($sender_fname != null && $sender_lname != null && sender_email != null && $sender_staddress != null && $sender_city != null && $sender_state != null && sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
+
+
+if($sender_fname != null && $sender_lname != null && sender_email != null && $sender_staddress != null && $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
     $_SESSION['form_completed'] = true;
     
     if(filter_var(FILTER_VALIDATE_EMAIL, $sender_email)) {
@@ -43,6 +45,10 @@ function redirect() {
     
     
     echo "$error_message";
+}
+
+function sendmail($message, $subject, $to) {
+    $headers = 'From: noreply@the100men.org';
 }
 
 ?>
