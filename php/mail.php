@@ -3,7 +3,7 @@ session_start();
 
 $sender_fname = $_POST['fname'];
 $sender_lname  = $_POST['lname'];
-$sender_email = $_POST['emai'];
+$sender_email = $_POST['email'];
 $sender_staddress = $_POST['address'];
 $sender_city = $_POST['city'];
 $sender_state = $_POST['state'];
@@ -15,7 +15,7 @@ $sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
 if($sender_fname != null && $sender_lname != null && sender_email != null && $sender_staddress != null && $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
     $_SESSION['form_completed'] = true;
     
-    if(filter_var(FILTER_VALIDATE_EMAIL, $sender_email)) {
+    if(filter_var($sender_email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['email_valid'] = true;
     } else {
         $_SESSION['email_valid'] = false;
