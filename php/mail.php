@@ -16,9 +16,10 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
     $_SESSION['form_completed'] = true;
     
     if(filter_var(FILTER_VALIDATE_EMAIL, $sender_email)) {
-    $_SESSION['email_valid'] = true;
+        $_SESSION['email_valid'] = true;
     } else {
         $_SESSION['email_valid'] = false;
+        redirect();
     }
     if(!preg_match('/[^0-9]{10}$/', $sender_phone) && !preg_match('/[^0-9]{10}$/', $sender_wphone) && !preg_match('/[^0-9]{10}$/', $sender_cphone)) {
         $_SESSION['phones_valid'] = true;
