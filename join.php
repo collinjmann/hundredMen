@@ -147,17 +147,23 @@
                             <legend>Contact Number</legend>
                             <div>
                                 <span>Home Number: </span>
-                                (<input type="text" name="homeAreaCode" maxlength="3" size="3" />) -
-                                <input type="text" name="homeFirstCode" maxlength="3" size="3" /> -
-                                <input type="text" name="homeLastCode" maxlength="4" size="4" /><br />
+                                (<input type="text" name="hphone1" maxlength="3" size="3" />) -
+                                <input type="text" name="hphone2" maxlength="3" size="3" /> -
+                                <input type="text" name="hphone3" maxlength="4" size="4" /><br />
                                 <span>Work Number: </span>
-                                (<input type="text" name="workAreaCode" maxlength="3" size="3" />) -
-                                <input type="text" name="workFirstCode" maxlength="3" size="3" /> -
-                                <input type="text" name="workLastCode" maxlength="4" size="4" /><br />
+                                (<input type="text" name="wphone1" maxlength="3" size="3" />) -
+                                <input type="text" name="wphone2" maxlength="3" size="3" /> -
+                                <input type="text" name="wphone3" maxlength="4" size="4" /><br />
                                 <span>Cell Number: </span>
+<<<<<<< HEAD:join.php
                                 (<input type="text" name="cellAreaCode" maxlength="3" size="3" pattern="[0-9]{3}" required />) -
                                 <input type="text" name="cellFirstCode" maxlength="3" size="3" pattern="[0-9]{3}" required /> -
                                 <input type="text" name="cellLastCode" maxlength="4" size="4" pattern="[0-9]{4}" required />
+=======
+                                (<input type="text" name="cphone1" maxlength="3" size="3" />) -
+                                <input type="text" name="cphone2" maxlength="3" size="3" /> -
+                                <input type="text" name="cphone3" maxlength="4" size="4" />
+>>>>>>> origin/master:join.html
                             </div>
                         </fieldset>
                         <fieldset>
@@ -176,7 +182,7 @@
                             </div>
                             <div>
                                 <span>State: </span>
-                                <select>
+                                <select name = "state">
                                     <option value="al">AL</option>
                                     <option value="ak">AK</option>
                                     <option value="az">AZ</option>

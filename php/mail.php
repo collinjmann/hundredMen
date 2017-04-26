@@ -12,9 +12,6 @@ $sender_hphone = $_POST['hphone1'] . $_POST['hphone2'] . $_POST['hphone3'];
 $sender_wphone = $_POST['wphone1'] . $_POST['wphone2'] . $_POST['wphone3'];
 $sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
 
-
-
-
 if($sender_fname != null && $sender_lname != null && sender_email != null && $sender_staddress != null && $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
     $_SESSION['form_completed'] = true;
     
@@ -22,16 +19,20 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
     $_SESSION['email_valid'] = true;
     } else {
         $_SESSION['email_valid'] = false;
+    }
+    if(preg_match('/[^0-9]{10}$/', $sender_phone) && preg_match('/[^0-9]{10}$/', $sender_wphone) && preg_match('/[^0-9]{10}$/', $sender_cphone)) {
+        $_SESSION['phones_valid'] = true;
+    } else {
+        $_SESSION['phones_valid'] = false;
+    }
+    if($_SESSION['email_valid'] == true && $_SESSION['phones_valid'] == true && $_SESSION['form_completed'] == true) {
+        sendmail();
         redirect();
     }
-    if(preg_match('/[^0-9]/', $sender_phone) && preg_match('/[^0-9]/', $sender_wphone) && preg_match('/[^0-9]/', $sender_cphone)) {
-        $_SESSION['phones_valid'] = true;
-    } else
 
 } else {
     $_SESSION['form_completed'] = false;
     redirect();
-    
 }
 
 function redirect() {
@@ -46,12 +47,18 @@ function redirect() {
         $error_message = "Invalid Email";
     }
     
+    if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
+        $error_message = "One or more phone number was not filled out correctly.";
+    }
+    
     
     echo "$error_message";
 }
 
 function sendmail($message, $subject, $to) {
     $headers = 'From: noreply@the100men.org';
+    
+    $message = "";
 }
 
 ?>
