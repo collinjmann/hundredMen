@@ -41,7 +41,7 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
                 Work Phone: $sender_wphone <br/>
                 Cell Phone: $sender_cphone <br/>
                 <br/>
-                Address: $sender_address <br/>
+                Address: $sender_staddress <br/>
                 City: $sender_city <br/>
                 Zip Code: $sender_zip <br/>
                 State: $sender_state
