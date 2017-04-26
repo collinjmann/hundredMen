@@ -86,7 +86,7 @@
             {
                 section section
                 {
-                    margin:15px;
+                    margin:0px;
                     width:100%;
                 }
                 section h1, section p
@@ -132,15 +132,15 @@
                             <legend>Basic Information</legend>
                             <div>
                                 <span>First Name: </span>
-                                <input type="text" name="fname" />
+                                <input type="text" name="fname" required />
                             </div>
                             <div>
                                 <span>Last Name: </span>
-                                <input type="text" name="lname" />
+                                <input type="text" name="lname" required />
                             </div>
                             <div>
                                 <span>Your Email: </span>
-                                <input type="text" name="email" />
+                                <input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$" required />
                             </div>
                         </fieldset>
                         <fieldset>
@@ -155,24 +155,24 @@
                                 <input type="text" name="workFirstCode" maxlength="3" size="3" /> -
                                 <input type="text" name="workLastCode" maxlength="4" size="4" /><br />
                                 <span>Cell Number: </span>
-                                (<input type="text" name="cellAreaCode" maxlength="3" size="3" />) -
-                                <input type="text" name="cellFirstCode" maxlength="3" size="3" /> -
-                                <input type="text" name="cellLastCode" maxlength="4" size="4" />
+                                (<input type="text" name="cellAreaCode" maxlength="3" size="3" pattern="[0-9]{3}" required />) -
+                                <input type="text" name="cellFirstCode" maxlength="3" size="3" pattern="[0-9]{3}" required /> -
+                                <input type="text" name="cellLastCode" maxlength="4" size="4" pattern="[0-9]{4}" required />
                             </div>
                         </fieldset>
                         <fieldset>
                             <legend>Mailing Information</legend>
                             <div>
                                 <span>Street Adress: </span>
-                                <input type="text" name="address" />
+                                <input type="text" name="address" required />
                             </div>
                             <div>
                                 <span>City: </span>
-                                <input type="text" name="city" />
+                                <input type="text" name="city" required />
                             </div>
                             <div>
                                 <span>Zip Code: </span>
-                                <input type="text" name="zip" maxlength="5" size="5" />
+                                <input type="text" name="zip" maxlength="5" size="5" required pattern="[0-9]{5}" />
                             </div>
                             <div>
                                 <span>State: </span>
