@@ -26,7 +26,27 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
         $_SESSION['phones_valid'] = false;
     }
     if($_SESSION['email_valid'] == true && $_SESSION['phones_valid'] == true && $_SESSION['form_completed'] == true) {
-        sendmail("noah.pikaart.wgd@gmail.com", "The 100 Men Who Give Signup");
+        $message = "<html>
+            <div>   
+                The 100 Men Who Give Signup: <br/>
+                
+                User Information: <br/>
+                First Name: $sender_fname <br/>
+                Last Name: $sender_lname <br/>
+                Email: $sender_email <br/>
+                <br/>
+                Home Phone: $sender_hphone <br/>
+                Work Phone: $sender_wphone <br/>
+                Cell Phone: $sender_cphone <br/>
+                <br/>
+                Address: $sender_address <br/>
+                City: $sender_city <br/>
+                Zip Code: $sender_zip <br/>
+                State: $sender_state
+            </div>
+        </html>";
+        
+        sendmail("noah.pikaart.wgd@gmail.com", "The 100 Men Who Give Signup", $message);
         redirect();
     }
 
@@ -36,7 +56,7 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
 }
 
 function redirect() {
-    echo "<script>window.location.href = 'contact.html'</script>";
+    echo "<script>window.location.href = '../contact.html'</script>";
     
     $error_message;
     if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
@@ -57,25 +77,7 @@ function redirect() {
 
 function sendmail($to, $subject, $message) {
     if(!$message) {
-        $message = "<html>
-            <div>   
-                The 100 Men Who Give Signup: <br/>
-                
-                User Information: <br/>
-                First Name: $sender_fname <br/>
-                Last Name: $sender_lname <br/>
-                Email: $sender_email <br/>
-                <br/>
-                Home Phone: $sender_hphone <br/>
-                Work Phone: $sender_wphone <br/>
-                Cell Phone: $sender_cphone <br/>
-                <br/>
-                Address: $sender_address <br/>
-                City: $sender_city <br/>
-                Zip Code: $sender_zip <br/>
-                State: $sender_state
-            </div>
-        </html>";
+        
     }
     
     
