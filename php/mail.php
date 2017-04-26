@@ -24,6 +24,7 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
         $_SESSION['phones_valid'] = true;
     } else {
         $_SESSION['phones_valid'] = false;
+        redirect();
     }
     if($_SESSION['email_valid'] == true && $_SESSION['phones_valid'] == true && $_SESSION['form_completed'] == true) {
         $message = "<html>
@@ -56,7 +57,7 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
 }
 
 function redirect() {
-    echo "<script>window.location.href = '../contact.html'</script>";
+    echo "<script>window.location.href = '../join.php';</script>";
     
     $error_message;
     if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
