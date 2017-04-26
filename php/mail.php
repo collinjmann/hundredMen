@@ -47,7 +47,7 @@ function redirect() {
         $error_message = "Invalid Email";
     }
     
-    if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
+    if($_SESSION['phones_valid'] == false && $_SESSION['email_valid'] != null) {
         $error_message = "One or more phone number was not filled out correctly.";
     }
     
@@ -84,7 +84,9 @@ function sendmail($to, $subject, $message) {
     $headers .= "Content-type: text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: noreply@the100menwhogive.com" . "\r\n";
     
-    @mail($to, $subject, $message, $headers);
+    if(@mail($to, $subject, $message, $headers)) {
+        $_SESSION['form_submitted'] = true;
+    }
     
 }
 
