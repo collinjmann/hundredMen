@@ -155,15 +155,12 @@
                                 <input type="text" name="wphone2" maxlength="3" size="3" /> -
                                 <input type="text" name="wphone3" maxlength="4" size="4" /><br />
                                 <span>Cell Number: </span>
-<<<<<<< HEAD:join.php
                                 (<input type="text" name="cellAreaCode" maxlength="3" size="3" pattern="[0-9]{3}" required />) -
                                 <input type="text" name="cellFirstCode" maxlength="3" size="3" pattern="[0-9]{3}" required /> -
                                 <input type="text" name="cellLastCode" maxlength="4" size="4" pattern="[0-9]{4}" required />
-=======
                                 (<input type="text" name="cphone1" maxlength="3" size="3" />) -
                                 <input type="text" name="cphone2" maxlength="3" size="3" /> -
                                 <input type="text" name="cphone3" maxlength="4" size="4" />
->>>>>>> origin/master:join.html
                             </div>
                         </fieldset>
                         <fieldset>
