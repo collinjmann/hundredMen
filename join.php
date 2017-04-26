@@ -151,7 +151,7 @@
                 <li><a href="history.html">History</a></li>
                 <li><a href="meetings.html">Meetings</a></li>
                 <li><a href="charities.html">Charities</a></li>
-                <li><a href="join.html">Join&nbsp;Us</a></li>
+                <li><a href="join.php">Join&nbsp;Us</a></li>
             </ul>
         </nav>
         
@@ -188,9 +188,6 @@
                                 <input type="text" name="wphone2" maxlength="3" size="3" /> -
                                 <input type="text" name="wphone3" maxlength="4" size="4" /><br />
                                 <span>Cell Number: </span>
-                                (<input type="text" name="cellAreaCode" maxlength="3" size="3" pattern="[0-9]{3}" required />) -
-                                <input type="text" name="cellFirstCode" maxlength="3" size="3" pattern="[0-9]{3}" required /> -
-                                <input type="text" name="cellLastCode" maxlength="4" size="4" pattern="[0-9]{4}" required />
                                 (<input type="text" name="cphone1" maxlength="3" size="3" />) -
                                 <input type="text" name="cphone2" maxlength="3" size="3" /> -
                                 <input type="text" name="cphone3" maxlength="4" size="4" />
@@ -281,15 +278,15 @@
         
         <footer>
             <ul>
-                <li>Home</li>
-                <li>History</li>
-                <li>Meetings</li>
-                <li>Charities</li>
-                <li>Join Us</li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="meetings.html">Meetings</a></li>
+                <li><a href="charities.html">Charities</a></li>
+                <li><a href="join.php">Join&nbsp;Us</a></li>
             </ul>
             <ul>
                 <li>Copyright Information | Email Information</li>
-                <li><img src="images/facebook_icon.png" alt="Facebook" /></li>
+                <li><a href="https://www.facebook.com/100MenTriCities/"><img src="images/facebook_icon.png" alt="Facebook Page" /></a></li>
             </ul>
         </footer>
         <script src="javascript/main.js"></script>

@@ -94,6 +94,15 @@ footer ul:first-of-type li
     padding-right:10px;
     border-right:1px solid #ffffff;
 }
+footer ul:first-of-type li a
+{
+    color:#ffffff;
+    text-decoration:none;
+}
+footer ul:first-of-type li a:hover
+{
+    text-decoration:underline;
+}
 footer ul li:last-of-type
 {
     border-right:none;
