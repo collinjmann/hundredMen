@@ -20,13 +20,13 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
     } else {
         $_SESSION['email_valid'] = false;
     }
-    if(preg_match('/[^0-9]{10}$/', $sender_phone) && preg_match('/[^0-9]{10}$/', $sender_wphone) && preg_match('/[^0-9]{10}$/', $sender_cphone)) {
+    if(!preg_match('/[^0-9]{10}$/', $sender_phone) && !preg_match('/[^0-9]{10}$/', $sender_wphone) && !preg_match('/[^0-9]{10}$/', $sender_cphone)) {
         $_SESSION['phones_valid'] = true;
     } else {
         $_SESSION['phones_valid'] = false;
     }
     if($_SESSION['email_valid'] == true && $_SESSION['phones_valid'] == true && $_SESSION['form_completed'] == true) {
-        sendmail();
+        sendmail("noah.pikaart.wgd@gmail.com", "The 100 Men Who Give Signup");
         redirect();
     }
 
@@ -40,7 +40,7 @@ function redirect() {
     
     $error_message;
     if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
-        $error_message = "Please verify all fields were filled out".
+        $error_message = "Please verify all fields were filled out";
     }
     
     if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
@@ -55,10 +55,37 @@ function redirect() {
     echo "$error_message";
 }
 
-function sendmail($message, $subject, $to) {
-    $headers = 'From: noreply@the100men.org';
+function sendmail($to, $subject, $message) {
+    if(!$message) {
+        $message = "<html>
+            <div>   
+                The 100 Men Who Give Signup: <br/>
+                
+                User Information: <br/>
+                First Name: $sender_fname <br/>
+                Last Name: $sender_lname <br/>
+                Email: $sender_email <br/>
+                <br/>
+                Home Phone: $sender_hphone <br/>
+                Work Phone: $sender_wphone <br/>
+                Cell Phone: $sender_cphone <br/>
+                <br/>
+                Address: $sender_address <br/>
+                City: $sender_city <br/>
+                Zip Code: $sender_zip <br/>
+                State: $sender_state
+            </div>
+        </html>";
+    }
     
-    $message = "";
+    
+    
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type: text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: noreply@the100menwhogive.com" . "\r\n";
+    
+    @mail($to, $subject, $message, $headers);
+    
 }
 
 ?>
