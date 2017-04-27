@@ -12,7 +12,7 @@ $sender_hphone = $_POST['hphone1'] . $_POST['hphone2'] . $_POST['hphone3'];
 $sender_wphone = $_POST['wphone1'] . $_POST['wphone2'] . $_POST['wphone3'];
 $sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
 
-if($sender_fname == null || $sender_lname == null || $sender_email == null || $sender_staddress == null || $sender_city == null || $sender_state == null || $sender_zip == null || $sender_hphone == null || $sender_wphone == null || $sender_cphone == null) {
+if($sender_fname != null && $sender_lname != null && $sender_email != null && $sender_staddress != null || $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
     $_SESSION['form_completed'] = true;
     
     if(filter_var($sender_email, FILTER_VALIDATE_EMAIL)) {
@@ -50,6 +50,9 @@ if($sender_fname == null || $sender_lname == null || $sender_email == null || $s
         
         sendmail("noah.pikaart.wgd@gmail.com", "The 100 Men Who Give Signup", $message);
         redirect();
+    } else {
+        $_SESSION['form_completed'] = false;
+        redirect();
     }
 
 } else {
@@ -78,12 +81,6 @@ function redirect() {
 }
 
 function sendmail($to, $subject, $message) {
-    if(!$message) {
-        
-    }
-    
-    
-    
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type: text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: noreply@the100menwhogive.com" . "\r\n";

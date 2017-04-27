@@ -107,12 +107,12 @@
     
     <body>
         <?php
-            if(isset($_SESSION['form_completed'])) {
+            #if(isset($_SESSION['form_completed'])) {
                 if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
                     echo "<script>alert('Error submitting form: Please verify all fields were filled out');</script>";
                     $_SESSION['form_completed'] = null;
                 }
-            }
+           # }
         
             if(isset($_SESSION['email_valid'])) {
                 if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
