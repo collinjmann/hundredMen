@@ -12,7 +12,7 @@ $sender_hphone = $_POST['hphone1'] . $_POST['hphone2'] . $_POST['hphone3'];
 $sender_wphone = $_POST['wphone1'] . $_POST['wphone2'] . $_POST['wphone3'];
 $sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
 
-if($sender_fname != null && $sender_lname != null && sender_email != null && $sender_staddress != null && $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
+if($sender_fname == null || $sender_lname == null || $sender_email == null || $sender_staddress == null || $sender_city == null || $sender_state == null || $sender_zip == null || $sender_hphone == null || $sender_wphone == null || $sender_cphone == null) {
     $_SESSION['form_completed'] = true;
     
     if(filter_var($sender_email, FILTER_VALIDATE_EMAIL)) {
@@ -21,7 +21,7 @@ if($sender_fname != null && $sender_lname != null && sender_email != null && $se
         $_SESSION['email_valid'] = false;
         redirect();
     }
-    if(!preg_match('/[^0-9]{10}$/', $sender_phone) && !preg_match('/[^0-9]{10}$/', $sender_wphone) && !preg_match('/[^0-9]{10}$/', $sender_cphone)) {
+    if(preg_match('/[^0-9]{10}$/', $sender_phone) && preg_match('/[^0-9]{10}$/', $sender_wphone) && preg_match('/[^0-9]{10}$/', $sender_cphone)) {
         $_SESSION['phones_valid'] = true;
     } else {
         $_SESSION['phones_valid'] = false;

@@ -165,15 +165,18 @@
                             <legend>Basic Information</legend>
                             <div>
                                 <span>First Name: </span>
-                                <input type="text" name="fname" required />
+                                <!--<input type="text" name="fname" required />-->
+                                <input type="text" name="fname"/>
                             </div>
                             <div>
                                 <span>Last Name: </span>
-                                <input type="text" name="lname" required />
+                                <!--<input type="text" name="lname" required />-->
+                                <input type="text" name="lname"/>
                             </div>
                             <div>
                                 <span>Your Email: </span>
-                                <input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$" required />
+                                <!--<input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$" required />-->
+                                <input type="text" name="email"/>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -197,15 +200,18 @@
                             <legend>Mailing Information</legend>
                             <div>
                                 <span>Street Adress: </span>
-                                <input type="text" name="address" required />
+                                <!--<input type="text" name="address" required />-->
+                                <input type="text" name="address" />
                             </div>
                             <div>
                                 <span>City: </span>
-                                <input type="text" name="city" required />
+                                <!--<input type="text" name="city" required />-->
+                                <input type="text" name="city"/>
                             </div>
                             <div>
                                 <span>Zip Code: </span>
-                                <input type="text" name="zip" maxlength="5" size="5" required pattern="[0-9]{5}" />
+                                <!--<input type="text" name="zip" maxlength="5" size="5" required pattern="[0-9]{5}" />-->
+                                <input type="text" name="zip" maxlength="5" size="5"/>
                             </div>
                             <div>
                                 <span>State: </span>
