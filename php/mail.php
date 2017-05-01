@@ -11,6 +11,7 @@ $sender_zip = $_POST['zip'];
 $sender_hphone = $_POST['hphone1'] . $_POST['hphone2'] . $_POST['hphone3'];
 $sender_wphone = $_POST['wphone1'] . $_POST['wphone2'] . $_POST['wphone3'];
 $sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
+$error_message = null;
 
 if($sender_fname != null && $sender_lname != null && $sender_email != null && $sender_staddress != null || $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
     $_SESSION['form_completed'] = true;
@@ -63,21 +64,20 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
 function redirect() {
     echo "<script>window.location.href = '../join.php';</script>";
     
-    $error_message;
     if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
         $error_message = "Please verify all fields were filled out";
+        echo $error_message;
     }
     
     if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
         $error_message = "Invalid Email";
     }
     
-    if($_SESSION['phones_valid'] == false && $_SESSION['email_valid'] != null) {
+    if($_SESSION['phones_valid'] == false && $_SESSION['phones_valid'] != null) {
         $error_message = "One or more phone number was not filled out correctly.";
     }
     
-    
-    echo "$error_message";
+    echo $error_message;
 }
 
 function sendmail($to, $subject, $message) {
@@ -87,6 +87,7 @@ function sendmail($to, $subject, $message) {
     
     if(@mail($to, $subject, $message, $headers)) {
         $_SESSION['form_submitted'] = true;
+        redirect();
     }
     
 }
