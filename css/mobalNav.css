@@ -1,9 +1,7 @@
 header, main, footer
 {
-    position:relative;
-    top:0px;
-    left:0px;
     z-index:-1;
+    left:0px;
     transition:left 1s;
 }
 header
@@ -82,4 +80,8 @@ nav:focus ul
 main
 {
     min-height:0px;
+}
+.slide
+{
+    left:200px;
 }

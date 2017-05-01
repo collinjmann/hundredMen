@@ -93,6 +93,10 @@
                     margin:0px;
                     width:100%;
                 }
+                section h1
+                {
+                    text-align:center;
+                }
                 section h1, section p
                 {
                     padding:15px;
@@ -290,6 +294,6 @@
                 <li><a href="https://www.facebook.com/100MenTriCities/"><img src="images/facebook_icon.png" alt="Facebook Page" /></a></li>
             </ul>
         </footer>
-        <script src="javascript/main.js"></script>
+        <script src="javascript/join.js"></script>
     </body>
 </html>
