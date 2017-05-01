@@ -13,7 +13,7 @@ $sender_wphone = $_POST['wphone1'] . $_POST['wphone2'] . $_POST['wphone3'];
 $sender_cphone = $_POST['cphone1'] . $_POST['cphone2'] . $_POST['cphone3'];
 $error_message = null;
 
-if($sender_fname != null && $sender_lname != null && $sender_email != null && $sender_staddress != null || $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
+if($sender_fname != null && $sender_lname != null && $sender_email != null && $sender_staddress != null && $sender_city != null && $sender_state != null && $sender_zip != null && $sender_hphone != null && $sender_wphone != null && $sender_cphone != null) {
     $_SESSION['form_completed'] = true;
     
     if(filter_var($sender_email, FILTER_VALIDATE_EMAIL)) {
@@ -49,7 +49,7 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
             </div>
         </html>";
         
-        sendmail("noah.pikaart.wgd@gmail.com", "The 100 Men Who Give Signup", $message);
+        sendmail("noah.pikaart.wgd@gmail.com, collin.mann.wgd@gmail.com", "The 100 Men Who Give Signup", $message);
         redirect();
     } else {
         $_SESSION['form_completed'] = false;
@@ -62,19 +62,19 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
 }
 
 function redirect() {
-    echo "<script>window.location.href = '../join.php';</script>";
+	echo "<script>window.location.href = '../join.php';</script>";
     
-    if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
-        $error_message = "Please verify all fields were filled out";
+    if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] !== null) {
+        $error_message = "Please verify all fields were filled out<br />";
         echo $error_message;
     }
     
-    if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
-        $error_message = "Invalid Email";
+    if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] !== null) {
+        $error_message = "Invalid Email<br />";
     }
     
-    if($_SESSION['phones_valid'] == false && $_SESSION['phones_valid'] != null) {
-        $error_message = "One or more phone number was not filled out correctly.";
+    if($_SESSION['phones_valid'] == false && $_SESSION['phones_valid'] !== null) {
+        $error_message = "One or more phone number was not filled out correctly.<br />";
     }
     
     echo $error_message;
@@ -89,7 +89,9 @@ function sendmail($to, $subject, $message) {
         $_SESSION['form_submitted'] = true;
         redirect();
     }
-    
+    else
+	{
+		echo "Error sending message.";
+	}
 }
-
 ?>

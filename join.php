@@ -125,9 +125,7 @@
                 echo "<script>alert('Error submitting form: One or more phone numbers was invalid.');</script>";
                 $_SESSION['phones_valid'] = null;
             }
-            
-        
-        
+			
             if($_SESSION['form_submitted'] == true) {
                 echo "<script>alert('Thanks for signing up!');</script>";
             }
