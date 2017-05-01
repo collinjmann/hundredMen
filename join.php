@@ -111,22 +111,22 @@
     
     <body>
         <?php
-            if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
+            if($_SESSION['form_completed'] === false && $_SESSION['form_completed'] !== null) {
                 echo "<script>alert('Error submitting form: Please verify all fields were filled out');</script>";
                 $_SESSION['form_completed'] = null;
             } 
         
-            if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
+            if($_SESSION['email_valid'] === false && $_SESSION['email_valid'] !== null) {
                 echo "<script>alert('Error submitting form: Please enter a valid email');</script>";
                 $_SESSION['email_valid'] = null;
             }
 
-            if($_SESSION['phones_valid'] == false && $_SESSION['phones_valid'] != null) {
+            if($_SESSION['phones_valid'] === false && $_SESSION['phones_valid'] !== null) {
                 echo "<script>alert('Error submitting form: One or more phone numbers was invalid.');</script>";
                 $_SESSION['phones_valid'] = null;
             }
 			
-            if($_SESSION['form_submitted'] == true) {
+            if($_SESSION['form_submitted'] === true) {
                 echo "<script>alert('Thanks for signing up!');</script>";
             }
         
