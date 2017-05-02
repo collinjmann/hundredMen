@@ -28,7 +28,7 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
         $_SESSION['phones_valid'] = false;
         redirect();
     }
-    if($_SESSION['email_valid'] == true && $_SESSION['phones_valid'] == true && $_SESSION['form_completed'] == true) {
+    if($_SESSION['email_valid'] === true && $_SESSION['phones_valid'] === true && $_SESSION['form_completed'] === true) {
         $message = "<html>
             <div>   
                 The 100 Men Who Give Signup: <br/>
@@ -64,15 +64,15 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
 function redirect() {
 	echo "<script>window.location.href = '../join.php';</script>";
     
-    if($_SESSION['form_completed'] === false && $_SESSION['form_completed'] !== null) {
+    if($_SESSION['form_completed'] === false) {
         $error_message = "Please verify all fields were filled out<br />";
     }
     
-    if($_SESSION['email_valid'] === false && $_SESSION['email_valid'] !== null) {
+    if($_SESSION['email_valid'] === false) {
         $error_message = "Invalid Email<br />";
     }
     
-    if($_SESSION['phones_valid'] === false && $_SESSION['phones_valid'] !== null) {
+    if($_SESSION['phones_valid'] === false) {
         $error_message = "One or more phone number was not filled out correctly.<br />";
     }
     
