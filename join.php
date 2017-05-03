@@ -172,7 +172,6 @@
                             <div>
                                 <span>Your Email: </span>
                                 <input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$" required />
-                                <input type="text" name="email" />
                             </div>
                         </fieldset>
                         <fieldset>
