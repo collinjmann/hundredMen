@@ -205,7 +205,6 @@
                             <div>
                                 <span>Zip Code: </span>
                                 <input type="text" name="zip" maxlength="5" size="5" required pattern="[0-9]{5}" />
-                                <input type="text" name="zip" maxlength="5" size="5" />
                             </div>
                             <div>
                                 <span>State: </span>
