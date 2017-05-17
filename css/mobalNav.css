@@ -1,6 +1,6 @@
 header, main, footer
 {
-    z-index:-1;
+    position:relative;
     left:0px;
     transition:left 1s;
 }
@@ -22,8 +22,9 @@ nav
     position:fixed;
     top:0px;
     left:0px;
-    background:linear-gradient(to top left, transparent 49.5%, #ffffff 50%);
+    background:linear-gradient(to top left, transparent 49.5%, lightblue 50%);
     outline:none;
+    z-index:1;
 }
 #hamburg
 {
@@ -51,13 +52,16 @@ nav ul
     height:100vh;
     position:fixed;
     top:0px;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
 }
 nav ul li a
 {
     display:block;
-    padding-top:30px;
-    padding-bottom:30px;
-    width:100%;
+    padding-top:15px;
+    padding-bottom:15px;
+    width:200px;
     padding-left:20px;
     color:#000000;
     text-decoration:none;
@@ -69,10 +73,6 @@ nav ul li a:hover
     background-color:#000000;
     color:#ffffff;
 }
-nav ul li:first-of-type a
-{
-    margin-top:15vh;
-}
 nav:focus ul
 {
     width:200px;
@@ -80,6 +80,35 @@ nav:focus ul
 main
 {
     min-height:0px;
+}
+section h1
+{
+    font-size:2em;
+    padding:10px;
+}
+section p
+{
+    padding:15px;
+}
+section
+{
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+section > ul
+{
+    padding-left:15px;
+    padding-right:15px;
+}
+section form
+{
+    margin:15px;
+}
+section form fieldset span
+{
+    width:100%;
+    display:block;
 }
 .slide
 {
