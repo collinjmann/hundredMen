@@ -22,13 +22,13 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
         $_SESSION['email_valid'] = false;
         redirect();
     }
-    if(preg_match('/[^0-9]{10}$/', $sender_phone) && preg_match('/[^0-9]{10}$/', $sender_wphone) && preg_match('/[^0-9]{10}$/', $sender_cphone)) {
+    if(preg_match('/^[0-9]{10}$/', $sender_hphone) && preg_match('/^[0-9]{10}$/', $sender_wphone) && preg_match('/^[0-9]{10}$/', $sender_cphone)) {
         $_SESSION['phones_valid'] = true;
     } else {
         $_SESSION['phones_valid'] = false;
         redirect();
     }
-    if($_SESSION['email_valid'] == true && $_SESSION['phones_valid'] == true && $_SESSION['form_completed'] == true) {
+    if($_SESSION['email_valid'] === true && $_SESSION['phones_valid'] === true && $_SESSION['form_completed'] === true) {
         $message = "<html>
             <div>   
                 The 100 Men Who Give Signup: <br/>
@@ -64,16 +64,15 @@ if($sender_fname != null && $sender_lname != null && $sender_email != null && $s
 function redirect() {
 	echo "<script>window.location.href = '../join.php';</script>";
     
-    if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] !== null) {
+    if($_SESSION['form_completed'] === false) {
         $error_message = "Please verify all fields were filled out<br />";
-        echo $error_message;
     }
     
-    if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] !== null) {
+    if($_SESSION['email_valid'] === false) {
         $error_message = "Invalid Email<br />";
     }
     
-    if($_SESSION['phones_valid'] == false && $_SESSION['phones_valid'] !== null) {
+    if($_SESSION['phones_valid'] === false) {
         $error_message = "One or more phone number was not filled out correctly.<br />";
     }
     
@@ -85,7 +84,7 @@ function sendmail($to, $subject, $message) {
     $headers .= "Content-type: text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: noreply@the100menwhogive.com" . "\r\n";
     
-    if(@mail($to, $subject, $message, $headers)) {
+    if(mail($to, $subject, $message, $headers)) {
         $_SESSION['form_submitted'] = true;
         redirect();
     }

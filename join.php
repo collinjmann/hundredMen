@@ -22,25 +22,24 @@
     
     <body>
         <?php
-            if($_SESSION['form_completed'] == false && $_SESSION['form_completed'] != null) {
+            if($_SESSION['form_completed'] === false) {
                 echo "<script>alert('Error submitting form: Please verify all fields were filled out');</script>";
                 $_SESSION['form_completed'] = null;
             } 
         
-            if($_SESSION['email_valid'] == false && $_SESSION['email_valid'] != null) {
+            if($_SESSION['email_valid'] === false) {
                 echo "<script>alert('Error submitting form: Please enter a valid email');</script>";
                 $_SESSION['email_valid'] = null;
             }
 
-            if($_SESSION['phones_valid'] == false && $_SESSION['phones_valid'] != null) {
+            if($_SESSION['phones_valid'] === false) {
                 echo "<script>alert('Error submitting form: One or more phone numbers was invalid.');</script>";
                 $_SESSION['phones_valid'] = null;
             }
 			
-            if($_SESSION['form_submitted'] == true) {
+            if($_SESSION['form_submitted'] === true) {
                 echo "<script>alert('Thanks for signing up!');</script>";
             }
-        
         ?>
         
         <header>
@@ -64,6 +63,7 @@
         </nav>
         
         <main>
+<<<<<<< HEAD
             <section>
                 <h1>Join The 100 Men</h1>
 
@@ -182,6 +182,124 @@
 
                 <div>
                     <p>Thank you so much for your interest in the 100 (or more) Men Who Give project. Enclosed you will find the information that you need to join this dynamic group. If you would like to join us, fill out the commitment form below and hit the send button at the bottom of the form.</p>
+=======
+            <section id="center">
+                <section>
+                    <h1>Join The 100 Men</h1>
+                    
+                    <form method="post" action="php/mail.php">
+                        <fieldset>
+                            <legend>Basic Information</legend>
+                            <div>
+                                <span>First Name: </span>
+                                <input type="text" name="fname" required />
+                      
+                            </div>
+                            <div>
+                                <span>Last Name: </span>
+                                <input type="text" name="lname" required />
+                            
+                            </div>
+                            <div>
+                                <span>Your Email: </span>
+                                <input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$" required />
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Contact Number</legend>
+                            <div>
+                                <span>Home Number: </span>
+                                (<input type="text" name="hphone1" maxlength="3" required size="3" />) -
+                                <input type="text" name="hphone2" maxlength="3" required size="3" /> -
+                                <input type="text" name="hphone3" maxlength="4" required size="4" /><br />
+                                <span>Work Number: </span>
+                                (<input type="text" name="wphone1" maxlength="3" required size="3" />) -
+                                <input type="text" name="wphone2" maxlength="3" required size="3" /> -
+                                <input type="text" name="wphone3" maxlength="4" required size="4" /><br />
+                                <span>Cell Number: </span>
+                                (<input type="text" name="cphone1" maxlength="3" required size="3" />) -
+                                <input type="text" name="cphone2" maxlength="3" required size="3" /> -
+                                <input type="text" name="cphone3" maxlength="4" required size="4" />
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Mailing Information</legend>
+                            <div>
+                                <span>Street Adress: </span>
+                                <input type="text" name="address" required />
+                            </div>
+                            <div>
+                                <span>City: </span>
+                                <input type="text" name="city" required />
+                               
+                            </div>
+                            <div>
+                                <span>Zip Code: </span>
+                                <input type="text" name="zip" maxlength="5" size="5" required pattern="[0-9]{5}" />
+                            </div>
+                            <div>
+                                <span>State: </span>
+                                <select name = "state">
+                                    <option value="al">AL</option>
+                                    <option value="ak">AK</option>
+                                    <option value="az">AZ</option>
+                                    <option value="ar">AR</option>
+                                    <option value="ca">CA</option>
+                                    <option value="co">CO</option>
+                                    <option value="ct">CT</option>
+                                    <option value="de">DE</option>
+                                    <option value="fl">FL</option>
+                                    <option value="ga">GA</option>
+                                    <option value="hi">HI</option>
+                                    <option value="id">ID</option>
+                                    <option value="il">IL</option>
+                                    <option value="in">IN</option>
+                                    <option value="ia">IA</option>
+                                    <option value="ks">KS</option>
+                                    <option value="ky">KY</option>
+                                    <option value="la">LA</option>
+                                    <option value="me">ME</option>
+                                    <option value="md">MD</option>
+                                    <option value="ma">MA</option>
+                                    <option value="mi" selected>MI</option>
+                                    <option value="mn">MN</option>
+                                    <option value="ms">MS</option>
+                                    <option value="mo">MO</option>
+                                    <option value="mt">MT</option>
+                                    <option value="ne">NE</option>
+                                    <option value="nv">NV</option>
+                                    <option value="nh">NH</option>
+                                    <option value="nj">NJ</option>
+                                    <option value="nm">NM</option>
+                                    <option value="ny">NY</option>
+                                    <option value="nc">NC</option>
+                                    <option value="nd">ND</option>
+                                    <option value="oh">OH</option>
+                                    <option value="ok">OK</option>
+                                    <option value="or">OR</option>
+                                    <option value="pa">PA</option>
+                                    <option value="ri">RI</option>
+                                    <option value="sc">SC</option>
+                                    <option value="sd">SD</option>
+                                    <option value="tn">TN</option>
+                                    <option value="tx">TX</option>
+                                    <option value="ut">UT</option>
+                                    <option value="vt">VT</option>
+                                    <option value="va">VA</option>
+                                    <option value="wa">WA</option>
+                                    <option value="wv">WV</option>
+                                    <option value="wi">WI</option>
+                                    <option value="wy">WY</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        <input type="submit" value="Submit" />
+                        <input type="reset" value="Reset" />
+                    </form>
+                    
+                    <div>
+                        <p>Thank you so much for your interest in the 100 (or more) Men Who Give project. Enclosed you will find the information that you need to join this dynamic group. If you would like to join us, fill out the commitment form below and hit the send button at the bottom of the form.</p>
+>>>>>>> origin/master
 
                     <p>I understand that in joining "100 (or more) Men Who Give" I am making a commitment to contribute an annual donation of $400.00 per year ($100.00 per quarter) to worthy causes, charities, and non-profits. I agree to honor my commitment even if I am not fond of the charity chosen. If I am not able to attend the quarterly meeting I will give my check (which will also serve as my proxy vote) to another member to deliver on my behalf.</p>
                 </div>
