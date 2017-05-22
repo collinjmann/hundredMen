@@ -39,6 +39,7 @@
 			
             if($_SESSION['form_submitted'] === true) {
                 echo "<script>alert('Thanks for signing up!');</script>";
+                $_SESSION['form_submitted'] = null;
             }
         ?>
         
